@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Friendship Day Greeting</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #FFDDC1, #FFABAB);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        .card {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            margin: auto;
+            position: relative;
+            animation: fadeIn 2s ease-in;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2rem;
+            animation: fadeIn 2s ease-in;
+        }
+
+        p {
+            font-size: 1.1rem;
+            margin: 1rem 0;
+        }
+
+        button {
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            background-color: #FFABAB;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            cursor: pointer;
+            margin-top: 1rem;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #FF677D;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(-100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes popUp {
+            from { transform: scale(0); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .wishes-card {
+            background: #FFDDC1;
+            animation: slideIn 1s ease-in;
+        }
+
+        .message-box {
+            background: #FFABAB;
+            animation: popUp 1s ease-in;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="welcome-card" class="card">
+            <h1>Happy Friendship Day!</h1>
+            <button id="proceed-button">Proceed</button>
+        </div>
+
+        <div id="wishes-card" class="card hidden wishes-card">
+            <h1>Dear Vinay,</h1>
+            <p>Wishing you a fantastic Friendship Day filled with joy, laughter, and unforgettable moments! Your friendship means the world to me.</p>
+            <button id="open-message-button">Open Message</button>
+        </div>
+
+        <div id="message-box" class="card hidden message-box">
+            <h1>Special Message for You!</h1>
+            <p>You are a fantastic friend and I’m grateful to have you in my life. Here’s to many more years of friendship and fun!</p>
+            <button id="back-button">Back to Wishes</button>
+        </div>
+    </div>
+    
+    <script>
+        document.getElementById('proceed-button').addEventListener('click', function() {
+            document.getElementById('welcome-card').classList.add('hidden');
+            document.getElementById('wishes-card').classList.remove('hidden');
+        });
+
+        document.getElementById('open-message-button').addEventListener('click', function() {
+            document.getElementById('wishes-card').classList.add('hidden');
+            document.getElementById('message-box').classList.remove('hidden');
+        });
+
+        document.getElementById('back-button').addEventListener('click', function() {
+            document.getElementById('message-box').classList.add('hidden');
+            document.getElementById('wishes-card').classList.remove('hidden');
+        });
+    </script>
+</body>
+</html>
